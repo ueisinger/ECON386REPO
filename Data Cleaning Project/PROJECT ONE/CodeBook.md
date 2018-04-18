@@ -1,0 +1,43 @@
+Project One: Code Book
+Authors: U.Eisinger, , M. Stephens, D. Chang, N. Kingery, and J. Watkins
+Date: 4.17.2018
+
+## Introduction and Description: Task One 
+The purpose of this code book is to narrate the results obtained in the data cleaning process used in Task One. The data used for this project was from the "Human Activity Recognition Using Smartphone Dataset" obtained from the Non Linear Complex Systems Smart Laboratory at the University of Genova in Italy. We began with seven different data sets: subject_train.txt, subject_test.txt, y_train.txt, y_test.txt, X_train.txt, X_test.txt, and features.txt. In this Task, we merged the seven datasets together and cleaned the dataset according to Professor Levkoff's instructions. The data was cleaned as to show the means and the standard deviations of each variable/feature for each activity per subject. This new dataset allows individuals to easily see the various average accelerometer and gyroscope feature readings for the specific movements. This dataset allows individuals to more easily compare the subjects recordings for each of the six activities. The goal of this task is to create a clean and tidy dataset that can be used for further exploratory and predictive analysis. 
+
+### Variable Names and Variable Labels
+Variable Name  | Variable Label
+-------------- | --------------------------------
+Subject  | There were 30 subjects, aged 19-48, that participated in this study with the Samsung Galaxy S II smartphone. Data was collected for each participants pertaining to each their six various activities and was obtained through determining the means and standard deviations of each features data.
+Activity | The activities that were recorded were Walking, Walking_Upstairs, Walking_Downstairs, Sitting, Standing, and Laying. For each of these activities, the Samsung smartphone used various embedded technologies to record their movements in a series of features. 
+tBodyAcc | The embedded accelerometer collected time domain signal data about body acceleration using three dimensional signals (X, Y, and Z).  Then means and standard deviations were extracted from the original dataset for each of the three dimensional signals.
+tGravityAcc | The embedded accelerometer collected time domain signal data of gravity acceleration using three dimensional signals (X, Y, and Z). The means and the standard deviations were extracted from the original dataset for each of the three signals.
+tBodyAccJerk | The embedded accelerometer collected time domain signal data of jerking movements using body linear accelerations and angular velocity. Data was collected using three dimensional signals (X, Y, Z). The means and the standard deviations were extracted from the original dataset for each of the three dimensional signals.
+tBodyGyro | The embedded gyroscope collected time domain signal data about body movements using three dimensional signals (X, Y, Z). The means and the standard deviations were extracted from the original dataset for each of the three signals. 
+tBodyGyroJerk | The embedded gyroscope collected time domain signal data about body jerking movements using three dimensional signals (X, Y, and Z). Then means and standard deviations were extracted from the original dataset for each of the three dimensional signals.
+tBodyAccMag | The embedded accelerometer collected time domain signal data about body acceleration magnitudes. The magnitude of these signals was calculated using the Euclidean norm. The means and standard deviations were extracted from the original dataset to create these variables.
+tGravityAccMag | The embedded accelerometer collected time domain signal data about the gravity acceleration magnitude. The magnitude of these signals was calculated using the Euclidean norm. The means and the standard deviations were extracted from the original dataset to create this variable.
+tBodyAccJerkMag | The embedded accelerometer collected time domain signal data about the body acceleration jerking magnitude. The magnitude of these signals was calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+tBodyGyroMag | The embedded gyroscope collected time domain signal data about the body magnitude. The magnitude of these signals was calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+tBodyGyroJerkMag | The embedded gyroscope collected time domain signal data about the body jerking magnitude. The magnitude of these signals was calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+fBodyAcc | The embedded accelerometer collected frequency domain signal data about the body acceleration using three dimensional signals (X, Y, and Z). The means and the standard deviations was extracted from the original dataset for each dimension to create this variable. 
+fBodyAccJerk | The embedded accelerometer collected frequency domain signal data about the body acceleration using three dimensional signals (X, Y, and Z). The means and the standard deviations was extracted from the original dataset for each dimension to create this variable.
+fBodyGyro | The embedded gyroscope collected frequency domain signal data about the body movements using three dimensional signals (X, Y, and Z). The means and the standard deviations were extracted from the original dataset for each dimension to create this variable.
+fBodyAccMag | The embedded accelerometer collected frequency domain signal data about body acceleration magnitudes. The magnitude of these signals were calculated using the Euclidean norm. The means and the standard deviations were extracted from the original dataset to create this variable.
+BodyBodyAccJerkMag | The embedded accelerometer collected frequency domain signal data about body acceleration jerking magnitudes. The magnitude of these signals were calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+fBodyBodyGyroMag | The embedded gyroscope collected frequency domain signal data about the body movement magnitudes. The magnitude of these signals were calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+fBodyBodyGyroJerkMag | The embedded gyroscope collected frequency domain signal data about the body jerking movement magnitudes. The magnitude of these three dimensional signals were calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+
+
+##Introduction and Description: Task Two
+The purpose of this project was to clean, transform, and parsing/partitioning the Panel_8589.txt file. This file contains all of the data obtained by Carl Pasurka in his experiment _Decomposing Electric Power Plant Emissions Within a Joint Production Framework_. This study calculated the relative importance of various factors associated with changes in emissions by coal-fired electric power plants between 1987 and 1995. We first imported the Panel_8589.txt and then began to clean and transform the dataset by adding column names, calculating daily averages, converting 1973 dollars into 2017 dollars, and adding variables to create tidy2.txt. Next, we used the tidy dataset obtained to create two new tidy dataset files: tidy2_a.txt and tidy2_b.txt. The tidy2_a.txt dataset is an average of all the variable across all years and the tidy2_b.txt dataset is an aggregate of all the variables within a given year for all of the coal-fired electrical power plants. These three cleaned files are derivations of the Panel_8589.txt file and are more easily understood.
+
+### Variable Names and Variable Labels
+Variable Name  | Variable Label
+-------------- | --------------------------------
+Plant_I.D. | This variable corresponds to the individual coal-fired electrical power plant identification numbers.
+Year | The year each plant was tested during an eight year period from 1987 to 1995. 
+Employees | The number of employed workers at the specified power plant.
+Heat_Content_of_Gas | Measured in Btu (in billions) and is the heat content of gas that is used at each plant. 
+Heat_Content_of_Oil | Measured in Btu (in billions) and is the heat content of oil that is used at each plant. 
+Heat_Content_of_Coal | Measured in Btu (in billions) and is the heat content of coal that is used at each plant. 
