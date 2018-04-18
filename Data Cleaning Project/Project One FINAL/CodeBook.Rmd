@@ -1,0 +1,90 @@
+---
+title: 'Project One: Code Book'
+author: "U. Eisinger, M. Stephens, D. Chang, N. Kingery, and J. Watkins"
+date: "4/17/2018"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+  toc: default
+toc: no
+toc_depth: 4
+---
+## Introduction and Description: Task One 
+The purpose of this code book is to narrate the results obtained in the data cleaning process used in Task One. The data used for this project was from the "Human Activity Recognition Using Smartphone Dataset" obtained from the Non Linear Complex Systems Smart Laboratory at the University of Genova in Italy. We began with seven different data sets: subject_train.txt, subject_test.txt, y_train.txt, y_test.txt, X_train.txt, X_test.txt, and featurest.txt. In this Task, we merged the seven datasets together and cleaned the dataset according to Professor Levkoff's instructions. The data was cleaned as to show the means and the standard deviations of each variable/feature for each activity per subject. This new dataset allows individuals to easily see the various average accelerometer and gyroscopre feature readings for the specific movements. This dataset allows individuals to more easily compare the subjects recordings for each of the six activities. The goal of this task is to create a clean and tidy dataset that can be used for further exploratory and predivtive analysis. 
+
+### Variable Names and Variable Labels
+Varible Name  | Variable Label
+-------------- | --------------------------------
+Subject  | There were 30 subjects, aged 19-48, that participated in this study with the Samsung Galaxy S II smartphone. Data was collected for each participants pertaining to each their six various activities and was obtained through determinind the means and standard deviations of each features data.
+Activity | The activities that were recorded were Walking, Walking_Upstairs, Walking_Downstairs, Sitting, Standing, and Laying. For each of these activities, the Samsung smartphone used various embedded technologies to record their movements in a seriees of features. 
+tBodyAcc | The embedded accelerometer collected time domain signal data about body acceleration using three dimensional signals (X, Y, and Z).  Then means and standard deviations were extracted from the original dataset for each of the three dimensional signals.
+tGravityAcc | The embedded accelerometer collected time domain signal data of gravity acceleration using three dimensional signals (X, Y, and Z). The means and the standard deviations were extracted from the original dataset for each of the three signals.
+tBodyAccJerk | The embedded accelerometer collected time domain signal data of jerking movements using body linear accelerations and angular velocity. Data was collected using three dimensional signals (X, Y, Z). The means and the standard deviations were extracted from the original dataset for each of the three dimensional signals.
+tBodyGyro | The embedded gyroscope ccollected time domain signal data about body movements using three dimensional signals (X, Y, Z). The means and the standard deviations were extracted from the original dataset for each of the three signals. 
+tBodyGyroJerk | The embedded gyroscope collected time domain signal data about body jerking movements using three dimensional signals (X, Y, and Z). Then means and standard deviations were extracted from the original dataset for each of the three dimensional signals.
+tBodyAccMag | The embedded accelerometer collected time domain signal data about body acceleration magnitudes. The magnitude of these signals was calculated using the Euclidean norm. The means and standard deviations were extracted from the original dataset to create these variables.
+tGravityAccMag | The embedded accelerometer collected time domain signal data about the gravity acceleration magnitude. The magnitude of these signals was calculated using the Euclidean norm. The means and the standard deviations were extracted from the original dataset to create this variable.
+tBodyAccJerkMag | The embedded accelerometer collected time domain signal data about the body acceleration jerking magnitude. The magnitude of these signals was calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+tBodyGyroMag | The embedded gryoscope collected time domain signal data about the body magnitude. The magnitude of these signals was calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+tBodyGyroJerkMag | The embedded gryoscope collected time domain signal data about the body jerking magnitude. The magnitude of these signals was calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+fBodyAcc | The embedded accelerometer collected frequency domain signal data about the body acceleration using three dimensional signals (X, Y, and Z). The means and the standard deviations was extracted from the original dataset for each dimension to create this variable. 
+fBodyAccJerk | The embedded accelerometer collected frequency domain signal data about the body acceleration using three dimensional signals (X, Y, and Z). The means and the standard deviations was extracted from the original dataset for each dimension to create this variable.
+fBodyGyro | The embedded gryoscope collected frequency domain signal data about the body movements using three dimensional signals (X, Y, and Z). The means and the standard deviations were extracted from the original dataset for each dimension to create this variable.
+fBodyAccMag | The embedded accelerometer collected frequency domain signal data about body acceleration magnitudes. The magnitude of these signals were calculated using the Euclidean norm. The means and the standard deviations were extracted from the original dataset to create this variable.
+BodyBodyAccJerkMag | The embedded accelerometer collected frequency domain signal data about body acceleration jerking magnitudes. The magnitude of these signals were calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+fBodyBodyGyroMag | The embedded gryscope collected frequency domain signal data about the body movement magnitudes. The magnitude of these signals were calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+fBodyBodyGyroJerkMag | The embedded gryscope collected frequency domain signal data about the body jerking movement magnitudes. The magnitude of these three dimentional signals were calculated using the Euclidean norm. The mean and the standard deviation was extracted from the original dataset to create this variable.
+
+###Data Transformations
+Below is a general list of each of the data transformations that we made to obtain tidy1.txt.  
+
+1. Importing the data from the txt files from the Econ386REPO, and saving them as objects using `read.table`. 
+2. Setting the first column that has numbers assigned to headers to null.
+3. Transposing the Header object so that the data frame changes from 1 column, 561 rows to 561 columns, 1 row. This also changes the data type to char.
+4. Merging the data into the same columns and rows using `rbind` and `cbind`. 
+5. Changing the name of the header row to be Subjects, Activity and the strings of newHeaders.
+6. Selecting columns individually with subject, activity, std, mean, and then subsetting into a new table using the `dplyr` library and the function `grep`.
+7. Renaming the activity column so that the numbers change to the actual activity.
+8. Grouping the subjects and activities into subgroups.
+9. Summarizing each subject with the mean and standard deviation of each of the six activities using `summarise_all`. 
+10. Used `write.table()` to save results as a file called tidy1.txt. 
+
+
+
+##Introduction and Description: Task Two
+The purpose of this project was to clean, transform, and parsing/paritioning the Panel_8589.txt file. This file contains all of the data obtained by Carl Pasurka in his experiment _Decomposing Electric Power Plant Emmisions Within a Joint Production Framework_. This study calculated the realtive importance of various factors associated with changes in emmissions by coal-fired electric power plants between 1987 and 1995. We first imported the Panel_8589.txt and then began to clean and transform the dataset by adding column names, calculating daily averages, converting 1973 dollars into 2017 dollars, and adding varibles to create tidy2.txt. Next, we used the tidy dataset obtained to create two new tidy dataset files: tidy2_a.txt and tidy2_b.txt. The tidy2_a.txt dataset is an average of all the variable across all years and the tidy2_b.txt dataset is an aggregate of all the variables within a given year for all of the coal-fired electrical power plants. These three cleaned files are derivations of the Panel_8589.txt file and are more easily understood.
+
+### Variable Names and Variable Labels
+Varible Name  | Variable Label
+-------------- | --------------------------------
+Plant_I.D. | This varible corresponds to the individual coal-fired eletrical power plant identification numbers.
+Year | The year each plant was tested during an eight year period from 1987 to 1995. 
+Employees | The number of employed workers at the specified power plant.
+Heat_Content_of_Gas | Measured in Btu (in billions) and is the heat content of gas that is used at each plant. 
+Heat_Content_of_Oil | Measured in Btu (in billions) and is the heat content of oil that is used at each plant. 
+Heat_Content_of_Coal | Measured in Btu (in billions) and is the heat content of coal that is used at each plant. 
+
+###Data Transformations
+Below is a general list of each of the data transformations that we made to obtain tidy2.txt. 
+
+1. Set the working directory to where the .txt file is on your computer using `setwd()`. 
+2. Loading the file into R using `read.table` function
+3. Renaming the variables by creating a vector. 
+4. Convert all energy measurements (energy produced and heat contents) into daily averages, measured in Mwh.
+5. Convert all pollutants quantities, measured in annualized short tons, into daily averages.
+6. Convert all dollars (measured in 1973 $???s) into 2017 dollars.
+7. Add a factor variable indicating whether or not Phase I of the Clean Air Act had already been announced or not (the CAA Phase I restrictions were announced in 1990) using `ifelse`. 
+8.Create tidy2.txt file using `write.table()` function. 
+
+Below is a general list of each of the data transformations that we made to obtain tidy2_a.txt. 
+
+1. Creating separate dataframes that contain the averages of each variable using `aggregate`. 
+2. Merging the dataframes together. 
+3. Create the tidy2_a.txt file. 
+
+Below is a general list of each of the data transformations that we made to obtain tidy2_b.txt.
+
+1. Creating separate dataframes that contain the sum of each variable using `aggregate`. 
+2. Merging the dataframes.
+3. Create the tidy2_b.txt file.
